@@ -59,8 +59,17 @@
   * Redis
 
 * Zookeeper
+* 
+* 
 * Apache Kafka
+* 
 * NGINX
 * HAProxy
-* Solr, ElasticSearch
 * 
+* Solr, ElasticSearch
+* BLOB store Amazon S3
+* Docker
+  * Kubernetes
+  * Mesos
+* Hadoop/Spark
+  * HDFS
