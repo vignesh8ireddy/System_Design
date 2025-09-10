@@ -97,3 +97,15 @@
 
 
 
+Non Functional Requirements:
+Scalability 
+Performance 
+Reliability 
+Security 
+Maintainability 
+Interoperability 
+Usability 
+Availability
+Cost effectiveness 
+
+
