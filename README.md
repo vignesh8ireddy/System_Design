@@ -1,5 +1,26 @@
 # System Design
 
+> Designing the architecture, components, and interfaces for a system so that it meets the end-user requirements.
+
+* Robust, Scalable, efficient applications
+* architect solutions to handle real world complexities
+* scalable: grow and handle increased demand without failure, shrink increasing resource utilization and efficiency
+* Efficient resource management
+* Adaptability: systems evolve with changing business needs and reduce long term costs
+* micro services X monolithic
+
+* System Design in SDLC, analyze -> plan -> DESIGN -> implement -> develop -> release
+* LLD: class & module design, logics, data structures, maintainability (for developers and engineers); OOPS & Design Patterns
+* HLD: Architecture of entire system, system components and interactions, scalability, performance, reliability (for architects & stakeholders like managers)
+* Redis cache, memcached, CDNs, apis
+* Functional Requirements: what system must do like user registration, streaming, texting messages, media...
+* Non Functional Requirements: scalability, latency, availability, security, etc
+* Networking and Security fundamentals like DNS, protocols(TCP/UDP, HTTP, WebSockets), OAuth, JWT, TLS/SSL, rate-limiting, API security and basic DDOS protection
+* Message Queues and steaming tools like Kafka and RabbitMQ
+* Fault tolerance, fallback strategies, redundancy, Load Balancer types & algorithms.
+* Observability tools like Prometheus, Grafana, ELK Stack(Elasticsearch, Logstash, Kibana), Alerting systems like PagerDuty
+* Design Trade-offs: performance considerations, scalability, security, cost,...
+
 ### Characteristics of System Design
 * Features of the System
 * Define APIs
@@ -73,3 +94,6 @@
   * Mesos
 * Hadoop/Spark
   * HDFS
+
+
+
