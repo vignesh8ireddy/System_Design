@@ -164,7 +164,5 @@ Cost effectiveness
     2. Decomposition by Business Capability
     3. Database Decoupling
     4. Event-Driven Architecture
-    
   ```
-
-    
+* Microservices Architecture
