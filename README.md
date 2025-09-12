@@ -21,6 +21,16 @@
 * Observability tools like Prometheus, Grafana, ELK Stack(Elasticsearch, Logstash, Kibana), Alerting systems like PagerDuty
 * Design Trade-offs: performance considerations, scalability, security, cost,...
 
+
+### Software Testing
+
+* Manual X Automation Testing
+
+1. White Box X Black Box X Grey Box
+2. Functional Testing, Non-Functional Testing
+3. Unit Testing, Integration Testing, System Testing
+4. Performance Testing (Load testing, Stress testing, scalability testing, stability testing, spike testing)
+
 ### Characteristics of System Design
 * Features of the System
 * Define APIs
@@ -166,3 +176,97 @@ Cost effectiveness
     4. Event-Driven Architecture
   ```
 * Microservices Architecture
+
+
+### Scalability
+
+* Horizontal scaling (add more instances) and vertical scaling (increase size of instance like, RAM, CPU, etc.) are two different aproached to improve the performance and capacity of the system.
+* Scaling ensures high availability and reliability, maintains performance and response time, supports growing data and storage needs.
+
+```
+1. Vertical Scaling (Scaling-in)
+> Upgrading the same system rather than increasing number of systems.
+> Simple to implement and useful for monolithic and small scale applications.
+> No changes to application code, less complex network, less complicated maintenance.
+Examples:
+i. Upgrading a MySQL server from 16GB RAM to 64GB to handle more queries.
+ii. Moving a webiste hosted on a 2-core VM to an 8-core, higher-RAM VM to improve performance.
+Disadvantages:
+i. Limited scalability: Unlike horizontal scaling, vertical scaling is constrained by the hardware's physical limitations.
+ii. One server still receives all the incoming requests thus increasing the possibility of downtime in the event of server failure.
+iii. requires restarting or replacing the machine => Downtime!
+iv. expensive comparatively because updrading the hardware 
+```
+
+```
+2. Horizontal Scaling (Scaling-out)
+> Adding more machines or servers to distribute the workload across a larger number of individual units.
+> No downtime while horizontal scaling
+> Increased fault tolerance
+> cheaper compared to vertical in long run.
+Disadvantages:
+i. Requires complex architecture (load balancers, distributed databases, etc.)
+ii. Difficult to maintain strong consistency across distributed nodes.
+iii. More machines => more networking, power, and maintainence.
+iv. Needs orchestration tools like Kubernetes, Ansible etc.
+v. Issues can be spread across nodes, making root-cause analysis tricky.
+vi. Communication between nodes adds latency and complexity.
+```
+
+```
+Horizontal X Vertical
+
+i. Cost Effectiveness: Horizontal for large systems, Vertical becomes costlier long-term.
+ii. Flexibility: Horizontal
+iii. Fault Tolerance: Horizontal
+iv. Performance: Horizontal (improves as workload is distributed), Vertical (improves but can hit hardware limits)
+v. Complexity: Vertical less complex
+vi. Applicability: Horizontal for massive scalability needs, vertical for moderate requirements
+vii. vertical is high secure because more control over a single server.
+viii. horizontal is super fast when compared to vertical
+
+> Follow hybrid approach of combining the speed and consistency of vertical scaling, with the resilience and infinite scalability of horizontal scaling.
+```
+
+```
+Achieving Scalability
+
+> Vertical scaling for an app like a big building with everything inside, horizontal it it's more like a city with many differenct parts.
+
+> NoSQL for lots of data and users at once, SQL for smaller apps
+
+> Serverless can be an excellent choice for applications with unpredictable traffic patterns or occasional spikes in activity because:
+
+i. it automatically cotrols resource scalability depending on demand.
+ii. pay only for the actual resources used.
+iii. AWS lambda or azure functions reduce operational overhead by handling underlying infrastructure.
+```
+
+```
+Bottlenecks that hurt the Scalability
+
+1. Database bottlenecks
+> Slow queries, ineffective indexing, insufficient hardware resources, or inadequate indexing cause the database to become a performance bottleneck.
+
+2. Network bottlenecks in a distributed system
+> network bandwidth or latency becomes a limiting factor
+> content delivery infrastructure
+> too many requests straining the network
+
+3. Server bottlenexks
+> server resources like CPU, RAM or disk I/O
+
+4. Authentication bottlenecks
+> When the process of confirming user identities and allowing access to resources becomes a limiting element in a system's overall performance and usability.
+> ineffective authentication procedures, a high volume of user authentication requests, or insufficient infrastructure for authentication.
+
+5. Third-party services bottlenecks
+> modern apps frequently rely on third-party services like cloud storage, geolocation, and payment processing whcih may limit a system's overall performance, dependability and scalability.
+
+6. Code Execution bottlenecks
+> The design, writing, or execution of software code affects a computer system's performance and efficiency.
+
+7. Data Storage Bottlenecks
+> slow access to file storage systems or inefficient utilization of disk space, leading to issues such as slow data access, data loss, or scalability problems.
+
+```
