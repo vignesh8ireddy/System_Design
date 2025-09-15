@@ -270,3 +270,88 @@ Bottlenecks that hurt the Scalability
 > slow access to file storage systems or inefficient utilization of disk space, leading to issues such as slow data access, data loss, or scalability problems.
 
 ```
+
+
+### Availability
+
+* It is a system's readiness and accessibility to users at any given moment.
+
+* Availability is measured as the percentage of time a system or service is operational and accessible to users over a specific period.
+```
+Availability(%) = ((Uptime)/(Uptime+Downtime))*100
+```
+
+* Redundancy, fault tolerance, and effective recovery techniques are used to achieve high availability.
+
+* Availability Importance
+  * User Experience
+  * Business Continuity
+  * Service Level Agreements (SLAs): Many businesses use SLAs to bind themselves to certain availability goals with their stakeholders or consumers. Financial fines or contractual obligations may follow noncompliance with these SLAs.
+  * Competitive Advantage
+  * Disaster Recovery: Systems can survive and recover from unforeseen occurences like hardware failures, network outages, natural disasters, or cyberattacks if they are designed with redundancy, failover mechanisms, and disaster recovery strategies.
+  * Regulatory Compliance: In many industries, there are regulatory requirements or standards that mandate a minimum level of system availability. Failure to comply with these regulations can result in legal consequences, fines or sanctions.
+
+* Achieving High Availability (Systems that usually demand high availability include healthcare systems, banking apps, emergency response services, cloud infrastructure, e-commerce platforms).
+  i. Redundancy: Data centers, networking and hardware are a few examples
+  ii. Load Balancing: avoiding overload on any part to enhance performance and fault tolerance.
+  iii. Failover mechanisms: Implementing automated processees to detect failures and switch to redundant systems without manual intervention.
+  iv. Disaster Recovery: Having a comprehensive plan in place to recover the system in case of a catastrophic event that affects the primary infrastructure.
+  v. Monitoring and Alerting
+  vi. Performance Optimization: lowering the possibility of bottlenecks and breakdowns
+  vii. Scaling when needed by adding more resources to accomodate increase demand.
+
+* System Availability Vs. Asset Reliability Vs. Fault Tolerance
+> Asset Reliability: Refers to the ability of individual components or assets (servers, databases or hardware) to perform their tasks without failure.
+
+> Fault Tolerance: The ability of a system to continue funcitioning, although with reduced performance, in the presence of faults or failures. (Expressed in terms of MTBF - Mean Time Between Failures and MTTR - Mean Time To Recover). (Fault tolerance often requires a high degree of redundancy mechanisms for various components)
+
+### Consistency
+
+* It is the property of ensuring that all nodes in a distributed system have the same view of the data at any given point in time, despite possible concurrent operations and network delays.
+
+* Consistency Importance
+  * Correctness: guarantees that the information accessible by various system components is always correct and up-to-date.
+  * Reliability: Users may rely on the system to deliver accurate results without mistakes and inconsistencies that could result in corrupted data.
+  * Data Integrity: All changes are applied and distributed appropriately
+  * Concurrency Control: Consistency strategies help with access control to prevent conflicts and ensure that changes are applied in a coodinated way in distributed or multi-user systems, where multiple clients may access and modify the same data at the same time.
+
+* Types of Consistency
+  1. Strong Consistency: also known as linearizability or strict consistency, it guarantees that every read operation receives the most recent write operation's value or an error. It ensures that all clients see the same sequence of updates and that updates appear be instantaneous. Achieving strong consistency often requires coodination and synchronization between distributed nodes, which can impact system performance and avaibaility.
+
+  Example: A traditional SQL database system with a single master node and multiple replicas ensures strong consistency. When a client writes data to the master node, subsequent reads from any replica will immediately reflect the latest value written. All replicas are updated synchronously, ensuring that all clients see a consistent view of the data.
+
+  2. Eventual Consistency:
+  3. Causal Consistency
+  4. Weak Consistency
+  5. Read your Writes Consistency
+  6. Monotonic Consistency
+  7. Monotonic Reads and Writes
+
+* Challenges with maintaining Consistency
+  
+  1. Coordination Overhead: Coordination between distributed nodes is necessary for consistency, which adds overhead as the system grows. System scalability may be impacted by synchronous coordination techniques that create bottlenecks, such as distributed locking or two phase commit protocols.f
+  
+  2. Latency: latency may increase if strong consistency models need to await acknowledgements from several nodes before finishing a write operation.
+
+  3. Operational Complexity: Ensuring consistency invovles configuring and managing complex distributed systems. Human error in configuring replication settings, consistency levels, or coordination mechanisms can lead to data inconsistencies or performance issues.
+
+  4. Data Synchronization: Strong synchronization methods are necessary to guarantee data consistency across many platforms and devices.
+
+  5. Concurrency Control: Coordinating concurrent access to shared data across differenct platforms while maintaining consistency requires careful design and implementation of concurrency control mechanisms.
+
+* Strategies for achieving Consistency
+
+  1. Design Patterns
+    * Single source of Truth: Design systems with a single authoritative source of truth for critical data. This reduces the potential for inconsistencies arising from multiple conflicting sources.
+
+    * Unchanged Operations: Design operations that can be applied multiple times without changing the result. Idempotent operations are essential for ensuring consistency in the face of network failures and retries.
+
+    * Versioning: Implement versioning mechanisms for data objects to track changes over time. Versioning helps in detecting conflicts and resolving inconsistencies.
+
+    * Asysnchronous Updates: Use asynchronous communication patterns to decouple components. By enabling components to handle updates independently, asynchronous updates lower congestion and increase scalability.
+
+  2. Consistency Models: Strong, Eventual, Causal, Weak,...
+
+  3. Conflict Resolution Techniques
+    * Last-Writer-Wins (LWW): Resolve conflicts by favoring the update with the latest timestamp or version. LWW is a simple conflict resolution strategy but may lead to data loss or inconsistency in some scenarios.
+    * Merge Strategies: Use custom merge strategies or conflict resolution algorithms tailored to the specific requirements of the application domain. Merge strategies reconcile conflicting updates based on application-specific semantics and user preferences.
