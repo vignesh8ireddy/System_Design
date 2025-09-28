@@ -1,4 +1,4 @@
-## Databases in System Design
+### Databases in System Design
 
 * One of the most critical system design choices is among SQL Vs NoSQL databases can drastically impact your system's overall performance and scalibility.
 
